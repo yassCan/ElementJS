@@ -5,8 +5,7 @@ ElementJS is very simple:
 
 #creating a component:
 
->> function component:
-counter example:
+<function component>
 let count
 function add() {
  count++
@@ -39,7 +38,7 @@ function Counter(props) {
 const counter = new Counter()
 
 
-#other way (nesting)
+other way (nesting)
 
 function Counter(props) {
   // the main container of all your childs
