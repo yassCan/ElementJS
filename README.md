@@ -13,14 +13,19 @@ function Counter(props) {
     // the childs attributes append every element to the parent
     childs: {
      button: new Element('button', {
-       onclick: 'add()', text: 'click'
+       onclick: `$(() => {
+         count++
+         select('.h1').innerHTML = count
+       })`, text: 'click'
      }),
      h1: new Element('h1', {
-       text: count,
+       text: count, class: 'h1'
        // and it could have more childs
-       /*childs: {
+       /*
+       childs: {
         // other children
-       }*/
+       }
+       */
      })
     }
   })
