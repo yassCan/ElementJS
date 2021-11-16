@@ -6,6 +6,7 @@ ElementJS is very simple:
 #creating a component:
 
 <function component>
+```javascript 
 let count
 function add() {
  count++
@@ -101,6 +102,8 @@ class Counter {
     return this.container
   })
 } 
+ 
+ ```
 
 
 and these are reusable components so you can do this
