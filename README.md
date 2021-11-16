@@ -26,4 +26,8 @@ function Counter(props) {
   })
   return this.container
 } 
+
+function add() {
+  count++
+}
 ```
