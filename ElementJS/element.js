@@ -6,19 +6,22 @@ const print = console.log
 const loop = setInterval
 const sleep = setTimeout
 const html = document.getElementsByTagName('html')[0]
-// class ElementJS {
-// 	constructor() {}
-// 	rerender(component) {
-// 		this.clonedElement = component.cloneNode(true)
-// 		component.innerHTML = ""
-// 		component.remove()
-// 		if(component.parent == undefined) {
-// 			body.append(this.clonedElement)
-// 		}
-// 	}
-// }
-class Element {
-  constructor(name, att) {
+
+
+/*
+create an App class
+*/
+
+function childrenOf(elem) {
+	const {children} = elem
+	return children
+}
+
+
+
+
+
+function element(name, att){
   	// atts => attributes
     this.atts = att
     this.name = name
@@ -34,11 +37,11 @@ class Element {
     	// val => value
 	  let val = this.keyValues[i]
 	  if(key == "css") {
-	  	this.setStyle(val, elem)
+	  	setStyle(val, elem)
 	  } else if (key == "childs") {
-	  	this.append(val, elem)
+	  	append(val, elem)
 	  } else if(key == "text") {
-	  	this.setText(val, elem)
+	  	setText(val, elem)
 	  } else if(key == "parent") {
 			val.append(elem)
 		}
@@ -47,24 +50,24 @@ class Element {
 	  elem.setAttributeNode(this.newAtt)
     });
     return elem
-  }
-  setText(val, elem) {
-  	elem.textContent = val
-  }
-  setStyle(styles, elem) {
-  	this.styles = styles
-  	for(const prop in this.styles) {
-  		elem.style[prop] = this.styles[prop]
-  	}
-  }
-  append(childs, elem) {
-  	for(const child in childs) {
-  		elem.append(childs[child])
-  		let parentAtt = document.createAttribute('parent')
-  		parentAtt.value = elem.toString()
-  		childs[child].setAttributeNode(parentAtt)
-  	}
-  }
+}
+
+function setText(val, elem) {
+	elem.textContent = val
+}
+function setStyle(styles, elem) {
+	this.styles = styles
+	for(const prop in this.styles) {
+		elem.style[prop] = this.styles[prop]
+	}
+}
+function append(childs, elem) {
+	for(const child in childs) {
+		elem.append(childs[child])
+		let parentAtt = document.createAttribute('parent')
+		parentAtt.value = elem.toString()
+		childs[child].setAttributeNode(parentAtt)
+	}
 }
 
 function createStyle(styles) {
@@ -83,7 +86,7 @@ function createStyle(styles) {
 		return this.camelPropsObj
 	}
 }
-const element = new ElementJS()
+// const element = new ElementJS()
 function toCamelCase(prop) {
 	// prop => properti, newProp => new propertie
 	let newProp
