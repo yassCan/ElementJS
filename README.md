@@ -1,7 +1,9 @@
+counter example
 ```JavaScript
 function Counter(props) {
   // the main container of all your childs
-  this.component = new Element('div', {
+  return new Element('div', {
+    parent: body
     // you can add html attribute with some speacial attributes
     // html attribute
     class: 'component'
@@ -29,8 +31,18 @@ function Counter(props) {
      })
     }
   })
-  return this.container
 } 
 
 const counter = new Counter()
+```
+
+in an html, add a script tag with the src attribute and the put the file path
+
+```html
+<html>
+  <head></head>
+  <body>
+    <script src="./counter.js"></script>
+  </body>
+</html>
 ```
