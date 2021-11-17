@@ -32,7 +32,5 @@ function Counter(props) {
   return this.container
 } 
 
-function add() {
-  count++
-}
+const counter = new Counter()
 ```
