@@ -114,15 +114,6 @@ const myBody = new Body([
 	'all of this with just JavaScript',
 	'javascript everywhere'
 ])
-
-const header = new Header('full stack developer')
-const myBody = new Body([
-	'this is javascript',
-	'and again this is javascript',
-	'all of this with just JavaScript',
-	'javascript everywhere'
-])
-
 ```
 
 notice how these are reusable components!
