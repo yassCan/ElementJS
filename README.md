@@ -7,23 +7,17 @@ function Counter() {
 		'font-family': 'sans-serif',
 		'font-size': '2rem'
 	})
-	return new Element('div', {
+	return element('div', {
 		parent: body,
 		css: createStyle({
 			'display': 'flex',
 			'justify-content': 'space-around'
 		}),
 		childs: {
-			p: new Element('p', {
-				// and every element can children
-				/*
-				childs: {
-					some more child elements for the p element
-				}
-				*/
+			p: element('p', {
 				text: count, css: this.fontStyle
 			}),
-			button: new Element('button', {
+			button: element('button', {
 				onclick: `$(() => {
 					count++
 					select('p').innerHTML = count
