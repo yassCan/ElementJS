@@ -1,4 +1,13 @@
 counter example
+to create an element we use the element function and the first argument is the name of the element
+and the second argument is an object, you can put in that object HTML attributes with some
+speacial ones like:
+**
+css => to create a style sheet with the createStyle({}) function
+text => to set the text content of the element
+childs => is an object with children of that element
+parent => defines the parent of the element 
+**
 ```JavaScript
 let count = 0
 
