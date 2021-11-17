@@ -38,6 +38,10 @@ function Counter() {
 const counter = new Counter()
 ```
 
+
+the $ function takes a function as an argument and execute, you can use if you want inline functions
+
+
 in an html, add a script tag with the src attribute and the put the file path
 
 ```html
