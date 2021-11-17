@@ -15,6 +15,12 @@ function Counter() {
 		}),
 		childs: {
 			p: new Element('p', {
+				// and every element can children
+				/*
+				childs: {
+					some more child elements for the p element
+				}
+				*/
 				text: count, css: this.fontStyle
 			}),
 			button: new Element('button', {
