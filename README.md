@@ -72,6 +72,8 @@ function Header(text) {
 }
 
 function MyDiv(pval) {
+	// creating a new component called MyDiv and give it pval(value of p) as an argument
+	// returns a div
 	return element('div', {
 		css: createStyle({
 			'display': 'flex',
@@ -79,6 +81,7 @@ function MyDiv(pval) {
 			'align-items': 'flex-start'
 		}),
 		childs: {
+			// MyDiv is a div which have an img element and a p element
 			img: element('img', {src: JAVASCRIPT_IMG}),			
 			p: element('p', {
 				text: pval
@@ -88,6 +91,7 @@ function MyDiv(pval) {
 }
 
 function Body(pList) {
+	// pList => list of paragraphs(=text)
 	this.alignment =  createStyle({
 		'display': 'flex',
 		'flex-direction': 'column',
@@ -99,6 +103,7 @@ function Body(pList) {
 			'text-align': 'center'
 		}),
 		childs: {
+			// make sure to not give the children the same name
 			div_0: new MyDiv(pList[0]),
 			div_1: new MyDiv(pList[1]),
 			div_2: new MyDiv(pList[2]),
