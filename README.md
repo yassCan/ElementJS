@@ -44,7 +44,8 @@ in an html, add a script tag with the src attribute and the put the file path
 <html>
   <head></head>
   <body>
-    <script src="./counter.js"></script>
+	<script src='./ElementJS/element.js'></script>
+    	<script src="./counter.js"></script>
   </body>
 </html>
 ```
