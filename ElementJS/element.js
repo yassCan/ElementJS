@@ -8,17 +8,70 @@ const sleep = setTimeout
 const html = document.getElementsByTagName('html')[0]
 
 
-/*
-create an App class
-*/
+/*-----------------------built-in components-----------------------*/
 
-function childrenOf(elem) {
-	const {children} = elem
-	return children
+function Container(att) {
+	return element('div', att)
+}
+
+
+function Header(text, fontstyles) {
+	let font = fontstyles ?? {'text-align': 'center', 'font-family': 'sans-serif'}
+	return Container({
+		css: createStyle(font),
+		class: 'element_header',
+		childs: {
+			h1: element('h1', {text})
+		}
+	})
+}
+
+
+let countNumberofDivs = 0
+
+function Scaffold(elems, opt, textStyles) {
+	let options = opt ?? {isInDiv: false, flexDir: 'column', gap: '1rem'}
+	const {flexDir, gap} = options 
+	if(elems == undefined) {
+		throw new Error('paragraphs are not defined')
+	}
+	let elemList = {}
+	let parentElement = body
+	for(const elem of elems) {
+		if(typeof elem === 'object') {
+			parentElement = elem.parent
+		}
+		elemList[`div${countNumberofDivs++}`] = Container({
+			childs: {
+				child: elem
+			}
+		})
+	}
+	return Container({
+		parent: parentElement ?? body,
+		childs: elemList, class: 'element_scaffold',
+		css: textStyles ?? {
+			'color': 'black', 'font-family': 'sans-serif',
+			'display': 'flex',
+			'gap': gap,
+			'flex-direction': flexDir
+		}
+	})
+}
+
+function Text(txt, opt) {
+	let options = opt ?? {
+		styles: {'font-family': 'sans-serif'},
+		parent: body 
+	}
+	return element('p', {
+		text: txt, css: createStyle(options.styles), parent: options.parent
+	})
 }
 
 
 
+/*-----------------------built-in components-----------------------*/
 
 
 function element(name, att){
@@ -35,20 +88,20 @@ function element(name, att){
     let parent
     this.keys.forEach((key, i) => {
     	// val => value
-	  let val = this.keyValues[i]
-	  if(key == "css") {
-	  	setStyle(val, elem)
-	  } else if (key == "childs") {
-	  	append(val, elem)
-	  } else if(key == "text") {
-	  	setText(val, elem)
-	  } else if(key == "parent") {
+	    let val = this.keyValues[i]
+        if(key == "css") {
+	  		setStyle(val, elem)
+	    } else if (key == "childs") {
+	  		append(val, elem)
+	    } else if(key == "text") {
+	  		setText(val, elem)
+	    } else if(key == "parent") {
 			val.append(elem)
-		}
-	  this.newAtt = document.createAttribute(key)
-	  this.newAtt.value = val
-	  elem.setAttributeNode(this.newAtt)
-    });
+	    } 
+		  this.newAtt = document.createAttribute(key)
+		  this.newAtt.value = val
+		  elem.setAttributeNode(this.newAtt)
+	});
     return elem
 }
 
@@ -62,6 +115,7 @@ function setStyle(styles, elem) {
 	}
 }
 function append(childs, elem) {
+	// console.log(childs)
 	for(const child in childs) {
 		elem.append(childs[child])
 		let parentAtt = document.createAttribute('parent')
