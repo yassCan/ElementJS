@@ -84,11 +84,6 @@ function MyDiv(pval) {
 
 function Body(pList) {
 	// pList => list of paragraphs(=text)
-	this.alignment =  createStyle({
-		'display': 'flex',
-		'flex-direction': 'column',
-		'align-items': 'flex-start'
-	})
 	return Container({
 		parent: body,
 		css: createStyle({
