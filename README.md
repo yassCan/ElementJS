@@ -16,7 +16,7 @@ function Counter() {
 		'font-family': 'sans-serif',
 		'font-size': '2rem'
 	})
-	return Container{
+	return Container({
 		parent: body,
 		css: createStyle({
 			'display': 'flex',
